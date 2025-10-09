@@ -1,0 +1,16 @@
+# Criar .gitignore para C#
+echo "bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+/nbproject/
+/.localhistory/
+_ReSharper.*
+*.csproj.user" > .gitignore
+
+# Adicionar ao git
+git add .gitignore
+git commit -m "Add .gitignore"
