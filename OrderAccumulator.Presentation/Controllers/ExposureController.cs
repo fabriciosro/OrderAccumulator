@@ -32,7 +32,7 @@ public class ExposureController : ControllerBase
         }
     }
 
-    [HttpPost("reset")]
+    [HttpPost]
     public async Task<IActionResult> ResetExposures()
     {
         try
