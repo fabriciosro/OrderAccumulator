@@ -3,14 +3,11 @@ using OrderAccumulator.Presentation;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// Add logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
 
-// Add layers
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
@@ -33,11 +30,8 @@ builder.Services.AddCors(options =>
         });
 });
 
-
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

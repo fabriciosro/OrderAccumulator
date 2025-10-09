@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MediatR;
-using OrderAccumulator.Application.Commands;
-using OrderAccumulator.Application.CommandHandlers;
+﻿using OrderAccumulator.Application.CommandHandlers;
 
 namespace OrderAccumulator.Presentation;
 

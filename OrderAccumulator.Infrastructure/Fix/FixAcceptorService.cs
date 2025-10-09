@@ -22,15 +22,15 @@ public class FixAcceptorService : IHostedService
         {
             if (!_isStarted)
             {
-                _logger.LogInformation("🚀 Starting FIX Acceptor...");
+                _logger.LogInformation("Starting FIX Acceptor...");
                 _acceptor.Start();
                 _isStarted = true;
-                _logger.LogInformation("✅ FIX Acceptor started successfully on port 9810");
+                _logger.LogInformation("FIX Acceptor started successfully on port 9810");
             }
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "❌ Failed to start FIX Acceptor");
+            _logger.LogError(ex, "Failed to start FIX Acceptor");
             throw;
         }
 
@@ -43,15 +43,15 @@ public class FixAcceptorService : IHostedService
         {
             if (_isStarted)
             {
-                _logger.LogInformation("🛑 Stopping FIX Acceptor...");
+                _logger.LogInformation("Stopping FIX Acceptor...");
                 _acceptor.Stop();
                 _isStarted = false;
-                _logger.LogInformation("✅ FIX Acceptor stopped successfully");
+                _logger.LogInformation("FIX Acceptor stopped successfully");
             }
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "❌ Error stopping FIX Acceptor");
+            _logger.LogError(ex, "Error stopping FIX Acceptor");
         }
 
         return Task.CompletedTask;
