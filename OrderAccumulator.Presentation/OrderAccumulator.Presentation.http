@@ -1,0 +1,6 @@
+@OrderAccumulator.Presentation_HostAddress = http://localhost:5290
+
+GET {{OrderAccumulator.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
