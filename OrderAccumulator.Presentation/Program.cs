@@ -32,19 +32,37 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-// isso pra desenvolvimento
 app.UseCors("AllowAll");
 
 app.MapControllers();
 
-var port = 5000; 
-var url = $"https://localhost:{port}";
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order Accumulator API v1");
+});
+
+if (app.Environment.IsDevelopment())
+{
+    app.Lifetime.ApplicationStarted.Register(() =>
+    {
+        var url = "https://localhost:5000/swagger";
+        try
+        {
+            Task.Delay(1000).Wait();
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Could not open browser: {ex.Message}");
+            Console.WriteLine($"Please open manually: {url}");
+        }
+    });
+}
 
 try
 {

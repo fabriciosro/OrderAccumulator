@@ -51,7 +51,7 @@ dotnet run
 
 OrderAccumulator -> https://localhost:5000/swagger/index.html
 
-OrderGenerator -> https://localhost:7001/
+OrderGenerator -> https://localhost:7001
 
 Crie ordens e observe os resultados
 
